@@ -2,6 +2,7 @@
 Sample app for my tutorial [Building a GraphQL Server with Spring Boot](https://www.pluralsight.com/guides/java-and-j2ee/building-a-graphql-server-with-spring-boot). 
 
 https://www.pluralsight.com/guides/building-a-graphql-server-with-spring-boot
+
 https://www.baeldung.com/spring-graphql
 
 You'll need [Java 9](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html).
