@@ -2,56 +2,69 @@ package com.example.DemoGraphQL.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.DemoGraphQL.exception.BookNotFoundException;
-import com.example.DemoGraphQL.model.Author;
-import com.example.DemoGraphQL.model.Book;
-import com.example.DemoGraphQL.repository.AuthorRepository;
-import com.example.DemoGraphQL.repository.BookRepository;
+import com.example.DemoGraphQL.model.*;
+import com.example.DemoGraphQL.repository.*;
 
 import java.util.Optional;
 
 public class Mutation implements GraphQLMutationResolver {
-    private BookRepository bookRepository;
-    private AuthorRepository authorRepository;
+	private BookRepository bookRepository;
+	private AuthorRepository authorRepository;
+	private CustomerRepository customerRepository;
+	private AppointmentRepository appointmentRepository;
 
-    public Mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
-    }
+	public Mutation(AuthorRepository authorRepository, BookRepository bookRepository,
+			CustomerRepository customerRepository, AppointmentRepository appointmentRepository) {
+		this.authorRepository = authorRepository;
+		this.bookRepository = bookRepository;
+		this.customerRepository = customerRepository;
+		this.appointmentRepository = appointmentRepository;
+	}
 
-    public Author newAuthor(String firstName, String lastName) {
-        Author author = new Author();
-        author.setFirstName(firstName);
-        author.setLastName(lastName);
+	public Appointment addAppointment(Appointment appointment) {
+		Appointment result = appointmentRepository.save(appointment);
+		return result;
+	}
 
-        authorRepository.save(author);
+	public Customer addCustomer(Customer customer) {
+		Customer result = customerRepository.save(customer);
+		return result;
+	}
 
-        return author;
-    }
+	public Author newAuthor(String firstName, String lastName) {
+		Author author = new Author();
+		author.setFirstName(firstName);
+		author.setLastName(lastName);
 
-    public Book newBook(String title, String isbn, Integer pageCount, Long authorId) {
-        Book book = new Book();
-        book.setAuthor(new Author(authorId));
-        book.setTitle(title);
-        book.setIsbn(isbn);
-        book.setPageCount(pageCount != null ? pageCount : 0);
+		authorRepository.save(author);
 
-        bookRepository.save(book);
+		return author;
+	}
 
-        return book;
-    }
+	public Book newBook(String title, String isbn, Integer pageCount, Long authorId) {
+		Book book = new Book();
+		book.setAuthor(new Author(authorId));
+		book.setTitle(title);
+		book.setIsbn(isbn);
+		book.setPageCount(pageCount != null ? pageCount : 0);
 
-    public boolean deleteBook(Long id) {
-        bookRepository.deleteById(id);
-        return true;
-    }
+		bookRepository.save(book);
 
-    public Book updateBookPageCount(Integer pageCount, Long id) {
-    	 Optional<Book> book = bookRepository.findById(id);
+		return book;
+	}
 
-        book.get().setPageCount(pageCount);
+	public boolean deleteBook(Long id) {
+		bookRepository.deleteById(id);
+		return true;
+	}
 
-        bookRepository.save(book.get());
+	public Book updateBookPageCount(Integer pageCount, Long id) {
+		Optional<Book> book = bookRepository.findById(id);
 
-        return book.get();
-    }
+		book.get().setPageCount(pageCount);
+
+		bookRepository.save(book.get());
+
+		return book.get();
+	}
 }

@@ -32,7 +32,7 @@ graphiql:
       query: graphiql/query.graphql
       defaultQuery: graphiql/query.graphql
 #      variables: variables.graphql
-      variables: graphql/author.graphqls
+      variables: graphql/schema.graphqls
     variables:
       editorTheme: solarized light
   headers:
@@ -55,7 +55,7 @@ altair:
   props:
     resources:
       defaultQuery: graphiql/query.graphql
-      variables: graphql/author.graphqls
+      variables: graphql/schema.graphqls
   headers:
     Authorization: Bearer <your-token>
 graphql.playground:

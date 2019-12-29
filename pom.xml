@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>DemoGraphQL</artifactId>
+	<artifactId>graphql-appoinments</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>DemoGraphQL</name>
+	<name>graphql-appoinments</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -75,6 +75,11 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 
