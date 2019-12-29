@@ -1,3 +1,6 @@
+/*
+
+
 package com.example.DemoGraphQL;
 
 import org.junit.Test;
@@ -14,3 +17,6 @@ public class DemoGraphQlApplicationTests {
 	}
 
 }
+
+
+*/

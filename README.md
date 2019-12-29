@@ -5,7 +5,7 @@ https://www.pluralsight.com/guides/building-a-graphql-server-with-spring-boot
 
 https://www.baeldung.com/spring-graphql
 
-You'll need [Java 9](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html).
+
 
 Clone this repo and execute `mvnw spring-boot:run`. Or inside an IDE, execute the class `com.example.DemoGraphQL.DemoGraphQlApplication`.
 
@@ -44,3 +44,6 @@ mutation {
 
 # License
 MIT
+
+## REference
+https://github.com/graphql-java-kickstart/graphql-spring-boot

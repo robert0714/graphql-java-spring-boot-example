@@ -28,7 +28,7 @@ public class GraphQLErrorAdapter implements GraphQLError {
 
     @Override
     public ErrorType getErrorType() {
-        return error.getErrorType();
+        return (ErrorType)error.getErrorType();
     }
 
     @Override

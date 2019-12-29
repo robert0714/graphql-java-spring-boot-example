@@ -5,6 +5,8 @@ import com.example.DemoGraphQL.model.Author;
 import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 
+import java.util.Optional;
+
 public class BookResolver implements GraphQLResolver<Book> {
     private AuthorRepository authorRepository;
 
@@ -12,7 +14,7 @@ public class BookResolver implements GraphQLResolver<Book> {
         this.authorRepository = authorRepository;
     }
 
-    public Author getAuthor(Book book) {
-        return authorRepository.findOne(book.getAuthor().getId());
+    public Optional<Author> getAuthor(Book book) {
+        return authorRepository.findById(book.getAuthor().getId());
     }
 }
